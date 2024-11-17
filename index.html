@@ -1,72 +1,143 @@
-<p>&nbsp;</p>
-<div class="container">
-<div class="title"><img class="logo" src="icon.png" alt="EasyDEM Logo" />
-<h1>EasyDEM</h1>
-</div>
-<p><strong>EasyDEM</strong> - A QGIS Plugin for Accessing Multiple Digital Elevation Models (DEMs) through the Google Earth Engine API.</p>
-<hr />
-<h2>Features</h2>
-<ul>
-<li><strong>Access Multiple DEM Datasets</strong>: Easily access and visualize various DEM datasets from Google Earth Engine (GEE) catalogs, including:
-<ul>
-<li><a href="https://developers.google.com/earth-engine/datasets/catalog/NASA_NASADEM_HGT_001">NASA/NASADEM_HGT/001</a></li>
-<li><a href="https://developers.google.com/earth-engine/datasets/catalog/NASA_ASTER_GED_AG100_003">NASA/ASTER_GED/AG100_003</a></li>
-<li><a href="https://developers.google.com/earth-engine/datasets/catalog/COPERNICUS_DEM_GLO30">COPERNICUS/DEM/GLO30</a></li>
-<li><a href="https://developers.google.com/earth-engine/datasets/catalog/JAXA_ALOS_AW3D30_V3_2">JAXA/ALOS/AW3D30/V3_2</a></li>
-<li><a href="https://developers.google.com/earth-engine/datasets/catalog/USGS_GMTED2010_FULL">USGS/GMTED2010_FULL</a></li>
-</ul>
-</li>
-<li><strong>Seamless Integration</strong>: Directly access and load DEM data into QGIS for immediate use in your projects.</li>
-</ul>
-<hr />
-<h2>Installation</h2>
-<h3>From QGIS Plugin Manager</h3>
-<ol>
-<li>Open QGIS.</li>
-<li>Navigate to <code>Plugins</code> &gt; <code>Manage and Install Plugins</code>.</li>
-<li>Search for <strong>EasyDEM</strong>.</li>
-<li>Click <strong>Install</strong>.</li>
-<li>MUST DO: <strong>Restart QGIS</strong>.</li>
-</ol>
-<h3>From ZIP</h3>
-<a class="download-button" href="https://github.com/caioarantes/qgis-EasyDEM-plugin/archive/refs/heads/main.zip" download="">Download EasyDEM Plugin</a>
-<ol>
-<li>Download the plugin ZIP file from the link above.</li>
-<li>Navigate to <code>Plugins</code> &gt; <code>Manage and Install Plugins</code>.</li>
-<li>Click <strong>Install from ZIP</strong>.</li>
-<li>Select the downloaded ZIP file.</li>
-<li>Click <strong>Install Plugin</strong>.</li>
-<li>MUST DO: <strong>Restart QGIS</strong>.</li>
-</ol>
-<hr />
-<h2>Usage</h2>
-<ol>
-<li><strong>Activate the Plugin:</strong> Go to <code>Plugins</code> &gt; <code>EasyDEM</code> &gt; <code>Activate</code>.</li>
-<li><strong>Access DEM Data:</strong> Open the plugin toolbar or icon, authenticate your GEE account, choose your area of interest (vector layer), output folder, the desired DEM dataset from Google Earth Engine, and load it directly into your QGIS workspace.</li>
-<li><strong>Exported Data:</strong> Download DEM data will be in the selected output folder.</li>
-</ol>
-<h3>Step-by-Step Guide</h3>
-<ol>
-<ol>
-<li><strong>Initial Setup:</strong></li>
-</ol>
-</ol>
-<img src="1.png" alt="Initial Setup Screenshot" />
-<ol>
-<ol>
-<li><strong>Area of Interest Selection:</strong></li>
-</ol>
-</ol>
-<img src="2.png" alt="Area of Interest Selection Screenshot" />
-<ol>
-<ol>
-<li><strong>DEM Dataset Selection:</strong></li>
-</ol>
-</ol>
-<img src="3.png" alt="DEM Dataset Selection Screenshot" /><hr />
-<h2>License</h2>
-<p><strong>The EasyDEM QGIS plugin is licensed under the MIT License.</strong></p>
-<pre><code>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EasyDEM QGIS Plugin</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            background-color: #f9f9f9;
+        }
+        .container {
+            width: 80%;
+            max-width: 900px;
+            background: #ffffff;
+            padding: 20px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+        }
+        .title {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+        .logo {
+            width: 50px;
+            height: auto;
+        }
+        img {
+            max-width: 100%;
+            height: auto;
+            margin: 10px 0;
+            border: 2px solid #ddd;
+            border-radius: 5px;
+        }
+        .download-button {
+            display: inline-block;
+            background-color: #007bff;
+            color: white;
+            padding: 10px 20px;
+            text-decoration: none;
+            border-radius: 5px;
+            margin: 10px 0;
+            text-align: center;
+        }
+        .download-button:hover {
+            background-color: #0056b3;
+        }
+        pre {
+            background: #f4f4f4;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            overflow-x: auto;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="title">
+            <img src="icon.png" alt="EasyDEM Logo" class="logo">
+            <h1>EasyDEM</h1>
+        </div>
+
+        <p><strong>EasyDEM</strong> - A QGIS Plugin for Accessing Multiple Digital Elevation Models (DEMs) through the Google Earth Engine API.</p>
+
+        <hr>
+
+        <h2>Features</h2>
+        <ul>
+            <li><strong>Access Multiple DEM Datasets</strong>: Easily access and visualize various DEM datasets from Google Earth Engine (GEE) catalogs, including:
+                <ul>
+                    <li>NASA/NASADEM_HGT/001</li>
+                    <li>NASA/ASTER_GED/AG100_003 </li>
+                    <li>COPERNICUS/DEM/GLO30</li>
+                    <li>JAXA/ALOS/AW3D30/V3_2</li>
+                    <li>USGS/GMTED2010_FULL</li>
+                </ul>
+            </li>
+            <li><strong>Seamless Integration</strong>: Directly access and load DEM data into QGIS for immediate use in your projects.</li>
+        </ul>
+
+        <hr>
+
+        <h2>Installation</h2>
+
+        <h3>From QGIS Plugin Manager</h3>
+        <ol>
+            <li>Open QGIS.</li>
+            <li>Navigate to <code>Plugins</code> > <code>Manage and Install Plugins</code>.</li>
+            <li>Search for <strong>EasyDEM</strong>.</li>
+            <li>Click <strong>Install</strong>.</li>
+            <li>MUST DO: <strong>Restart QGIS</strong>.</li>
+        </ol>
+
+        <h3>From ZIP</h3>
+        
+        <a href="https://github.com/caioarantes/qgis-EasyDEM-plugin/archive/refs/heads/main.zip" class="download-button" download>Download EasyDEM Plugin</a>
+
+        <ol>
+            <li><a href="https://developers.google.com/earth-engine/datasets/catalog/NASA_NASADEM_HGT_001">NASA/NASADEM_HGT/001</a></li>
+            <li><a href="https://developers.google.com/earth-engine/datasets/catalog/NASA_ASTER_GED_AG100_003">NASA/ASTER_GED/AG100_003</a></li>
+            <li><a href="https://developers.google.com/earth-engine/datasets/catalog/COPERNICUS_DEM_GLO30">COPERNICUS/DEM/GLO30</a></li>
+            <li><a href="https://developers.google.com/earth-engine/datasets/catalog/JAXA_ALOS_AW3D30_V3_2">JAXA/ALOS/AW3D30/V3_2</a></li>
+            <li><a href="https://developers.google.com/earth-engine/datasets/catalog/USGS_GMTED2010_FULL">USGS/GMTED2010_FULL</a></li>
+        </ol>
+        <hr>
+
+        <h2>Usage</h2>
+        <ol>
+            <li><strong>Activate the Plugin:</strong> Go to <code>Plugins</code> > <code>EasyDEM</code> > <code>Activate</code>.</li>
+            <li><strong>Access DEM Data:</strong> Open the plugin toolbar or icon, authenticate your GEE account, choose your area of interest (vector layer), output folder, the desired DEM dataset from Google Earth Engine, and load it directly into your QGIS workspace.</li>
+            <li><strong>Exported Data:</strong> Download DEM data will be in the selected output folder.</li>
+        </ol>
+
+        <h3>Step-by-Step Guide</h3>
+        <ol>
+            <li><strong>Initial Setup:</strong></li>
+            <img src="1.png" alt="Initial Setup Screenshot">
+
+            <li><strong>Area of Interest Selection:</strong></li>
+            <img src="2.png" alt="Area of Interest Selection Screenshot">
+
+            <li><strong>DEM Dataset Selection:</strong></li>
+            <img src="3.png" alt="DEM Dataset Selection Screenshot">
+        </ol>
+
+        <hr>
+
+        <h2>License</h2>
+        <p><strong>The EasyDEM QGIS plugin is licensed under the MIT License.</strong></p>
+        <pre>
+<code>
 Copyright (c) [2024] Caio Arantes
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -86,5 +157,8 @@ AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
 LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
-</code></pre>
-</div>
+</code>
+        </pre>
+    </div>
+</body>
+</html>
